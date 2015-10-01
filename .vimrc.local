@@ -8,8 +8,8 @@ set t_Co=256
 " colorscheme peaksea
 " colorscheme fruity
 " colorscheme ir_black
-
-colorscheme maui
+autocmd VimEnter * set nospell
+autocmd VimEnter *  colorscheme maui
 
 "switch to next / previous tabs
 nmap gn :bnext<CR>
