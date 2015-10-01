@@ -1,0 +1,40 @@
+syntax enable
+
+" Set 256 color mode support for vim
+set t_Co=256
+
+" included colorthemes
+" colorscheme molokai
+" colorscheme peaksea
+" colorscheme fruity
+" colorscheme ir_black
+
+colorscheme maui
+
+"switch to next / previous tabs
+nmap gn :bnext<CR>
+nmap gN :bprevious<CR>
+
+"close current opened tab
+nmap gC :bp<BAR> bd #<CR>
+
+set expandtab
+set sts=2
+set ts=2
+set sw=2
+
+"Add jade formatting and syntac support
+Bundle 'digitaltoad/vim-jade'
+
+" Themes
+Plugin 'trusktr/seti.vim'
+Plugin 'justincampbell/vim-railscasts'
+Plugin 'stulzer/heroku-colorscheme'
+Plugin 'vim-scripts/kkruby.vim'
+Plugin 'zsoltf/vim-maui'
+Plugin 'dylanaraps/crayon'
+Plugin 'thomd/vim-wasabi-colorscheme'
+Plugin 'ratazzi/blackboard.vim'
+Plugin 'demorose/up.vim'
+Plugin 'jlund3/colorschemer'
+Plugin 'scheakur/vim-scheackur'

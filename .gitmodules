@@ -1,0 +1,9 @@
+[submodule "antigen"]
+	path = antigen
+	url = https://github.com/zsh-users/antigen.git
+[submodule "autoenv"]
+	path = autoenv
+	url = git://github.com/kennethreitz/autoenv.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
