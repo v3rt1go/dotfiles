@@ -18,7 +18,6 @@ setopt AUTO_CD
 source $ZSH/oh-my-zsh.sh
 source $DOTS/antigen/antigen.zsh
 source /usr/share/autojump/autojump.sh
-source $HOME/.autoenv/activate.sh
 
 # ANTIGEN SETUP
 antigen use oh-my-zsh
@@ -28,7 +27,7 @@ antigen use oh-my-zsh
 antigen bundle debian
 antigen bundle git
 antigen bundle git-extras
-antigen bundle autoenv
+antigen bundle Tarrasch/zsh-autoenv
 antigen bundle colorize
 antigen bundle command-not-found
 antigen bundle common-aliases
@@ -38,8 +37,8 @@ antigen bundle cp
 antigen bundle extract
 antigen bundle history
 antigen bundle autojump
-# antigen bundle zsh-users/zsh-syntax-highlighting
-# antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle last-working-dir
 antigen bundle sudo
 antigen bundle wd
@@ -74,26 +73,22 @@ antigen bundle nyan
 antigen bundle chucknorris
 
 # antigen themes
-# antigen theme robbyrussell
+antigen theme robbyrussell
 # using the sindresorhus/pure theme that does not require antigen theme to be defined
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+# antigen bundle mafredri/zsh-async
+# antigen bundle sindresorhus/pure
 
 # Load antigen
 antigen apply
 
 # Autoload pure prompt
-autoload -U promptinit && promptinit
+# autoload -U promptinit && promptinit
 # optionally define some options
-PURE_CMD_MAX_EXEC_TIME=10
-prompt pure
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-ocean.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+# PURE_CMD_MAX_EXEC_TIME=10
+# prompt pure
 
 # User configuration
-export NVM_DIR="/home/v3rt1go/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/home/v3rt1go/.nvm/versions/node/v0.12.7/lib/node_modules
-export PATH="/usr/local/heroku/bin:/home/v3rt1go/.nvm/versions/node/v4.1.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/heroku/bin:/home/agriciuc/.nvm/versions/node/v4.1.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
