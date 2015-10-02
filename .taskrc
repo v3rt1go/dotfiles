@@ -25,3 +25,16 @@ data.location=~/.task
 #include /usr/share/taskwarrior/dark-yellow-green.theme
 #include /usr/share/taskwarrior/dark-gray-256.theme
 
+journal.time=on
+color=on
+default.command=next
+weekstart=Monday
+
+alias.dailystatus=status:completed end.after:today all
+alias.punt=modify wait:1d
+alias.someday=mod +someday wait:someday
+urgency.tags.coefficient=0.0
+alias.shortpunt=modify wait:3h
+alias.longpunt=modify wait:1w
+urgency.user.tag.blocks.coefficient=5.0
+
