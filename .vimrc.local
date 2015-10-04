@@ -1,7 +1,138 @@
-syntax enable
+" Leader
+let mapleader = " "
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
 
 " Set 256 color mode support for vim
 set t_Co=256
+
+" General settings
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set laststatus=2  " Always display the status line
+set autowrite     " Automatically :write before running commands
+set cursorline
+set timeoutlen=500
+
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+set sts=2
+set ts=2
+set sw=2
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
+
+" Numbers
+set number
+set numberwidth=5
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+filetype plugin indent on
+
+augroup vimrcEx
+  autocmd!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile *.es set filetype=javascript
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+  " Enable spellchecking for Markdown
+  autocmd FileType markdown setlocal spell
+
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+  " Automatically wrap at 72 characters and spell check git commit messages
+  autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType gitcommit setlocal spell
+
+  " Allow stylesheets to autocomplete hyphenated words
+  autocmd FileType css,scss,sass setlocal iskeyword+=-
+augroup END
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  unlet g:ctrlp_user_command
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Add custom ignore patterns for CtrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'node':  '\v[\/]\(node_modules|bower_components)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 
 " included colorthemes
 " colorscheme molokai
@@ -9,31 +140,106 @@ set t_Co=256
 " colorscheme fruity
 " colorscheme ir_black
 autocmd VimEnter * set nospell
-autocmd VimEnter * colorscheme molokai
+autocmd VimEnter * colorscheme maui
+
+" Define custom cursorline colors
+autocmd VimEnter * hi CursorLine ctermbg=234 guibg=\#000000
+
+" Index ctags from any project, including those outside Rails
+map <Leader>ct :!ctags -R .<CR>
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 "switch to next / previous tabs
-nmap gn :bnext<CR>
-nmap gN :bprevious<CR>
+nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bv :bprevious<CR>
 
 "close current opened tab
-nmap gC :bp<BAR> bd #<CR>
+noremap <Leader>bc :bp<BAR> bd #<CR>
 
-set expandtab
-set sts=2
-set ts=2
-set sw=2
+" Run commands that require an interactive shell
+nnoremap <Leader>r :RunInInteractiveShell<space>
 
-"Add jade formatting and syntac support
-Bundle 'digitaltoad/vim-jade'
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
-" Themes
-Plugin 'trusktr/seti.vim'
-Plugin 'justincampbell/vim-railscasts'
-Plugin 'stulzer/heroku-colorscheme'
-Plugin 'vim-scripts/kkruby.vim'
-Plugin 'zsoltf/vim-maui'
-Plugin 'dylanaraps/crayon'
-Plugin 'thomd/vim-wasabi-colorscheme'
-Plugin 'ratazzi/blackboard.vim'
-Plugin 'demorose/up.vim'
-Plugin 'jlund3/colorschemer'
+" Insert new line from normal mode with OO above and oo below
+" without entering in insert mode
+noremap OO O<Esc>
+noremap oo o<Esc>
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
+" configure syntastic syntax checking to check on open as well as save
+let g:syntastic_check_on_open=1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {"regex": "possibly useless use of a variable in void context"}
+
+" Make CtrlP Funky search on path instead of line
+let g:ctrlp_funky_matchtype = 'path'
+" Turn on syntax highlight for CtrlPFuncky
+let g:ctrlp_funky_syntax_highlight = 1
+
+" Airline configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#exclude_preview = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
+
+" Do not show buffers on tabline when no tabs are opened
+let g:airline#extensions#tabline#show_buffers = 0 
+
+let g:airline#extensions#tmuxline#enabled = 1
+
+let g:airline_powerline_fonts = 1
+let g:airline_detect_paste=1
+let g:airline_theme='tomorrow'
+
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+let g:airline#extensions#ctrlp#color_template = 'visual'
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+" Disable current buffers being printed to command line
+let g:bufferline_echo = 0
+
+" force load powerline symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+
+
+" Do not trigger neocomplete when working with multicursor
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction

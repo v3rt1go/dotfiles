@@ -1,0 +1,18 @@
+if &compatible
+  set nocompatible
+end
+
+"Add jade formatting and syntac support
+Bundle 'digitaltoad/vim-jade'
+
+" Themes
+Bundle 'trusktr/seti.vim'
+Bundle 'justincampbell/vim-railscasts'
+Bundle 'stulzer/heroku-colorscheme'
+Bundle 'vim-scripts/kkruby.vim'
+Bundle 'zsoltf/vim-maui'
+Bundle 'dylanaraps/crayon'
+Bundle 'thomd/vim-wasabi-colorscheme'
+Bundle 'ratazzi/blackboard.vim'
+Bundle 'demorose/up.vim'
+Bundle 'jlund3/colorschemer'

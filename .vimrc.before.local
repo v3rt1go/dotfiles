@@ -1,0 +1,6 @@
+" Select what plugin bundles we want to use
+let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'javascript', 'html', 'misc',]
+
+" Allow airline to use poweline fonts
+let g:airline_powerline_fonts = 1
+

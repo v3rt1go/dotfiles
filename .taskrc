@@ -33,8 +33,14 @@ weekstart=Monday
 alias.dailystatus=status:completed end.after:today all
 alias.punt=modify wait:1d
 alias.someday=mod +someday wait:someday
-urgency.tags.coefficient=0.0
 alias.shortpunt=modify wait:3h
 alias.longpunt=modify wait:1w
-urgency.user.tag.blocks.coefficient=5.0
 
+# Coefficient modifiers
+urgency.user.tag.blocks.coefficient=5.0
+urgency.tags.coefficient=0.0
+
+# Timetracking configs from https://github.com/kostajh/taskwarrior-time-tracking-hook
+uda.totalactivetime.type=duration
+uda.totalactivetime.label=Total active time
+uda.totalactivetime.values=

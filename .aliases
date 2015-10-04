@@ -1,0 +1,15 @@
+# Aliases file
+
+# General
+alias cl=clear
+
+# Taskwarrior
+alias tw=task
+alias twa='task add'
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# Change ag bundle alias to allow silversearcher alias
+unalias ag
+alias agu='sudo $apt_pref $apt_upgr'
