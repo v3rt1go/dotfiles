@@ -23,6 +23,10 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set cursorline
 set timeoutlen=500
+set relativenumber
+
+" Check this out - to do a proper paste
+"set pastemode=<F2>
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -145,6 +149,10 @@ autocmd VimEnter * colorscheme maui
 " Define custom cursorline colors
 autocmd VimEnter * hi CursorLine ctermbg=234 guibg=\#000000
 
+" set darker colors for indent guides
+autocmd VimEnter * hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter * hi IndentGuidesEven ctermbg=darkgrey
+
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
 
@@ -157,7 +165,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-"switch to next / previous tabs
+"switch to next / previous buffers
 nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bv :bprevious<CR>
 
@@ -178,14 +186,28 @@ nnoremap <C-l> <C-w>l
 noremap OO O<Esc>
 noremap oo o<Esc>
 
+" Key to toggle undotree plugin
+nnoremap <F5> :UndotreeToggle<CR>
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
+" SYNTACTIC CONFIG
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {"regex": "possibly useless use of a variable in void context"}
+
+" syntactic noob friendly configs
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+" END SYNTACTIC CONFIG
 
 " Make CtrlP Funky search on path instead of line
 let g:ctrlp_funky_matchtype = 'path'
@@ -214,7 +236,7 @@ let g:airline#extensions#syntastic#enabled = 1
 " Disable current buffers being printed to command line
 let g:bufferline_echo = 0
 
-" force load powerline symbols
+" force load powerline symbol
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -227,7 +249,19 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" Do not use same color from line number on SignColumn
+let g:gitgutter_override_sign_column_highlight = 0
+autocmd VimEnter * hi GitGutterAdd ctermfg=darkgreen
+autocmd VimEnter * hi GitGutterChange ctermfg=darkyellow
+autocmd VimEnter * hi GitGutterDelete ctermfg=darkred
+autocmd VimEnter * hi GitGutterChangeDelete ctermfg=magenta
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 
+" We do not want git signs to replace syntactic signs
+" so we don;t update them realtime or eager load them
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 " Do not trigger neocomplete when working with multicursor
 " Called once right before you start selecting multiple cursors

@@ -2,6 +2,10 @@ if &compatible
   set nocompatible
 end
 
+" Switch to git-gutter instead of vim-signify since I don't use anything
+" else but git for VCS
+Bundle 'airblade/vim-gitgutter'
+
 "Add jade formatting and syntac support
 Bundle 'digitaltoad/vim-jade'
 
