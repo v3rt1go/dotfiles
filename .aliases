@@ -11,5 +11,5 @@ alias twa='task add'
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Change ag bundle alias to allow silversearcher alias
-unalias ag
+unalias ag 2>/dev/null
 alias agu='sudo $apt_pref $apt_upgr'

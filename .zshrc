@@ -29,7 +29,7 @@ bindkey "^P" history-search-backward
 bindkey '^N' history-search-forward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
-bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughgu
+bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 
 # load sources
 source $ZSH/oh-my-zsh.sh
