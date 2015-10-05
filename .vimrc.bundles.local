@@ -6,6 +6,10 @@ end
 " else but git for VCS
 Bundle 'airblade/vim-gitgutter'
 
+" Bundles for setting up vim as a nodejs ide
+Bundle 'marijnh/tern_for_vim', {'do': 'npm install'}
+
+
 "Add jade formatting and syntac support
 Bundle 'digitaltoad/vim-jade'
 
