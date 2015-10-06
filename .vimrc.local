@@ -156,7 +156,15 @@ autocmd VimEnter * hi CursorLine ctermbg=234 guibg=\#000000
 autocmd VimEnter * hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter * hi IndentGuidesEven ctermbg=darkgrey
 
-" Index ctags from any project, including those outside Rails
+" Enable code folding in javascript files
+" autocmd FileType javascript call JavaScriptFold()
+autocmd VimEnter * set foldmethod=indent
+autocmd VimEnter * set foldlevelstart=1
+autocmd VimEnter * set foldnestmax=99
+
+let javaScript_fold=1         " JavaScript
+
+" Index ctags from any project
 map <Leader>ct :!ctags -R .<CR>
 
 " Switch between the last two files
@@ -313,7 +321,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
@@ -359,4 +367,11 @@ endif
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " TERN JS configs
+" Go to definition of item under cursor
 nnoremap <F12> :TernDef<CR>
+" Show documentation for item under cursor
+nnoremap <F1> :TernDoc<CR>
+" Find type of item under cursor
+nnoremap <F2> :TernType<CR>
+" Find all refferences of item under cursor
+nnoremap <C-F12> :TernRef<CR>
