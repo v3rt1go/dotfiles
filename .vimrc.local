@@ -29,7 +29,7 @@ autocmd VimEnter * set timeoutlen=500
 autocmd VimEnter * set relativenumber
 
 " Check this out - to do a proper paste
-"set pastemode=<F2>
+" set pastemode=<F2>
 
 " Softtabs, 2 spaces
 autocmd VimEnter * set tabstop=2
@@ -160,9 +160,17 @@ autocmd VimEnter * hi IndentGuidesEven ctermbg=darkgrey
 " autocmd FileType javascript call JavaScriptFold()
 autocmd VimEnter * set foldmethod=indent
 autocmd VimEnter * set foldlevelstart=1
-autocmd VimEnter * set foldnestmax=99
+autocmd VimEnter * set foldnestmax=100
 
 let javaScript_fold=1         " JavaScript
+
+" JS Beautify config
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " Index ctags from any project
 map <Leader>ct :!ctags -R .<CR>

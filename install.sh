@@ -1,8 +1,8 @@
 #!/bin/bash
 DOTFILES=$HOME/dotfiles
 
-# Run this script to install all the dependencies and create symlinks in $HOME after cloning
-# the dotfiles repo
+# Run this script to install all the dependencies and create symlinks in $HOME 
+# after cloning the dotfiles repo
 
 # Update git submodules
 echo "Updating git submodules ..."
@@ -41,6 +41,20 @@ sudo apt-get install silversearcher-ag
 sudo apt-get install fortune
 sudo apt-get install cowsay
 
+# Install ctags; jsctags; tern
+echo "Install ctags jsctags and ternjs"
+sudo apt-get install ctags
+npm install -g git+https://github.com/ramitos/jsctags.git
+npm install -g tern
+
+# Setup eslint with bable support
+echo "Install eslint with babel-eslint"
+npm install -g eslint
+npm install -g eslint-plugin-filenames
+npm install -g babel
+npm install -g babel-eslint
+npm install -g html2jade
+
 # Link config files 
 echo "Linking all config files in $HOME ..."
 ln -sf $DOTFILES/.aliases $HOME/.aliases
@@ -57,6 +71,20 @@ ln -sf $DOTFILES/.tmux.conf $HOME/.tmux.conf
 ln -sf $DOTFILES/.vimrc.local $HOME/.vimrc.local
 ln -sf $DOTFILES/.vimrc.bundles.local $HOME/.vimrc.bundles.local
 ln -sf $DOTFILES/.vimrc.before.local $HOME/.vimrc.before.local
+
+# Install vim bundles
+echo "Installing vim bundles"
+vim +BundleInstall
+
+# Setup tern-for-vim and vim-javascript-syntax
+cd $HOME/.vim/bundles/tern_for_vim
+npm install
+
+# Setup vim-javascript syntax for better syntax higlighting
+mkdir -p $HOME/.vim/syntax
+mkdir -p $HOME/.vim/ftdetect
+ln -sf $HOME/.vim/bundle/vim-javascript-syntax/syntax/javascript.vim $HOME/.vim/syntax/javascript.vim
+ln -sf $HOME/.vim/bundle/vim-javascript-syntax/syntax/javascript.vim $HOME/.vim/ftdetect/javascript.vim
 
 # Source .zshrc
 echo "All done ... Reloading zsh ..."

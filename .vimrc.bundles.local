@@ -7,12 +7,16 @@ end
 Bundle 'airblade/vim-gitgutter'
 
 " Bundles for setting up vim as a nodejs ide
-Bundle 'marijnh/tern_for_vim', {'do': 'npm install'}
-
+Bundle 'marijnh/tern_for_vim'
 
 "Add jade formatting and syntac support
 Bundle 'digitaltoad/vim-jade'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'mxw/vim-jsx'
+Bundle 'moll/vim-node'
+Bundle 'wavded/vim-stylus'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'zeekay/vim-html2jade'
 
 " Themes
 Bundle 'trusktr/seti.vim'
