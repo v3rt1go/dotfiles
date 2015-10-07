@@ -18,6 +18,9 @@ Bundle 'wavded/vim-stylus'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'zeekay/vim-html2jade'
 
+" Tmux plugins
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
 " Themes
 Bundle 'trusktr/seti.vim'
 Bundle 'justincampbell/vim-railscasts'
