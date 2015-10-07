@@ -19,7 +19,8 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'zeekay/vim-html2jade'
 
 " Tmux plugins
-Plugin 'tmux-plugins/vim-tmux-focus-events'
+Bundle 'tmux-plugins/vim-tmux-focus-events'
+Bundle 'benmills/vimux'
 
 " Themes
 Bundle 'trusktr/seti.vim'

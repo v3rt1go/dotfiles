@@ -2,6 +2,12 @@
 DOTS=$HOME/dotfiles
 export ZSH=$HOME/.oh-my-zsh
 
+# Disable auto - title to prevent tmux windows to be renames
+DISABLE_AUTO_TITLE=true
+
+# We let tmux save the path each time the shell prompt is displayed
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
 # history settings
 setopt hist_ignore_all_dups inc_append_history
 HISTFILE=~/.zhistory

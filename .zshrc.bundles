@@ -17,7 +17,6 @@ antigen bundle history
 antigen bundle autojump
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
-# antigen bundle last-working-dir
 antigen bundle sudo
 antigen bundle wd
 antigen bundle colored-man
@@ -25,7 +24,7 @@ antigen bundle cp
 
 # TMUX
 antigen bundle tmux
-antigen bundle tmuxinator
+antigen bundle thewtex/tmux-mem-cpu-load
 
 # VIM
 antigen bundle vundle

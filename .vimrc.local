@@ -173,7 +173,7 @@ autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " Index ctags from any project
-map <Leader>ct :!ctags -R .<CR>
+map <Leader>ct :!ctags -R . --exclude=.git --exclude=node_modules --exclude=bower_components --exclude=test<CR>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
