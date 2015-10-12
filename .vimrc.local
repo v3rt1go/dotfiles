@@ -25,7 +25,7 @@ autocmd VimEnter * set incsearch     " do incremental searching
 autocmd VimEnter * set laststatus=2  " Always display the status line
 autocmd VimEnter * set autowrite     " Automatically :write before running commands
 autocmd VimEnter * set cursorline
-autocmd VimEnter * set timeoutlen=500
+autocmd VimEnter * set ttimeoutlen=50
 autocmd VimEnter * set relativenumber
 
 " Check this out - to do a proper paste
