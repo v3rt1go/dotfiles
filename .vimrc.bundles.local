@@ -16,6 +16,7 @@ Bundle 'mxw/vim-jsx'
 Bundle 'moll/vim-node'
 Bundle 'wavded/vim-stylus'
 Bundle 'maksimr/vim-jsbeautify'
+Bundle 'einars/js-beautify'
 Bundle 'zeekay/vim-html2jade'
 
 " Tmux plugins

@@ -58,7 +58,7 @@ npm install -g html2jade
 # Link config files 
 echo "Linking all config files in $HOME ..."
 ln -sf $DOTFILES/.aliases $HOME/.aliases
-ln -sf $DOTFILE/.gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES/.gitconfig $HOME/.gitconfig
 
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 ln -sf $DOTFILES/.zshrc.bundles $HOME/.zshrc.bundles
@@ -85,6 +85,10 @@ mkdir -p $HOME/.vim/syntax
 mkdir -p $HOME/.vim/ftdetect
 ln -sf $HOME/.vim/bundle/vim-javascript-syntax/syntax/javascript.vim $HOME/.vim/syntax/javascript.vim
 ln -sf $HOME/.vim/bundle/vim-javascript-syntax/syntax/javascript.vim $HOME/.vim/ftdetect/javascript.vim
+
+# Link .editorconfig file in home
+cd $HOME
+ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
 
 # Source .zshrc
 echo "All done ... Reloading zsh ..."

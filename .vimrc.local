@@ -39,6 +39,7 @@ autocmd VimEnter * set expandtab
 autocmd VimEnter * set sts=2
 autocmd VimEnter * set ts=2
 autocmd VimEnter * set sw=2
+autocmd VimEnter * set et
 
 " Display extra whitespace
 autocmd VimEnter * set list listchars=tab:»·,trail:·,nbsp:·
@@ -69,6 +70,24 @@ autocmd VimEnter * set complete+=kspell
 
 " Always use vertical diffs
 autocmd VimEnter * set diffopt+=vertical
+
+" included colorthemes
+" colorscheme molokai
+" colorscheme peaksea
+" colorscheme fruity
+" colorscheme ir_black
+autocmd VimEnter * set nospell
+autocmd VimEnter * colorscheme maui
+
+" Define custom cursorline colors
+autocmd VimEnter * hi CursorLine ctermbg=234 guibg=\#000000
+
+" set darker colors for indent guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter * hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter * hi IndentGuidesEven ctermbg=234
+" set indent guide size
+let g:indent_guides_guide_size = 2
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -140,21 +159,6 @@ let g:ctrlp_custom_ignore = {
   \ 'node':  '\v[\/]\(node_modules|bower_components)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
-
-" included colorthemes
-" colorscheme molokai
-" colorscheme peaksea
-" colorscheme fruity
-" colorscheme ir_black
-autocmd VimEnter * set nospell
-autocmd VimEnter * colorscheme maui
-
-" Define custom cursorline colors
-autocmd VimEnter * hi CursorLine ctermbg=234 guibg=\#000000
-
-" set darker colors for indent guides
-autocmd VimEnter * hi IndentGuidesOdd  ctermbg=black
-autocmd VimEnter * hi IndentGuidesEven ctermbg=darkgrey
 
 " Enable code folding in javascript files
 " autocmd FileType javascript call JavaScriptFold()
