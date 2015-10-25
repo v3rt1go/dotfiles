@@ -90,6 +90,11 @@ ln -sf $HOME/.vim/bundle/vim-javascript-syntax/syntax/javascript.vim $HOME/.vim/
 cd $HOME
 ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
 
+# Setup editor theme - for gnome terminal
+echo "Setting up editor theme for gnome terminal"
+ln -sf $DOTFILES/base16-eighties.dark.sh $HOME/.config/base16-eighties.dark.sh
+source $HOME/.config/base16-eighties.dark.sh
+
 # Source .zshrc
 echo "All done ... Reloading zsh ..."
 source $HOME/.zshrc
