@@ -5,5 +5,5 @@
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "powerline-fonts"]
-	path = powerline-fonts
+	path = fonts
 	url = https://github.com/powerline/fonts.git
