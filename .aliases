@@ -7,9 +7,13 @@ alias cl=clear
 alias tw=task
 alias twa='task add'
 
+# Nvim
+alias vim=nvim
+
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Change ag bundle alias to allow silversearcher alias
 unalias ag 2>/dev/null
+alias adu='sudo apt-get update'
 alias agu='sudo $apt_pref $apt_upgr'

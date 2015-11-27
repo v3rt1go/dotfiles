@@ -2,6 +2,12 @@
 DOTS=$HOME/dotfiles
 export ZSH=$HOME/.oh-my-zsh
 
+# ZSH_THEME="sorin"
+# ZSH_THEME="re5et"
+# ZSH_THEME="tjkirch"
+# ZSH_THEME="rgm"
+# ZSH_THEME="pmcgeek"
+
 # Disable auto - title to prevent tmux windows to be renames
 DISABLE_AUTO_TITLE=true
 
@@ -40,7 +46,6 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 # load sources
 source $ZSH/oh-my-zsh.sh
 source $DOTS/antigen/antigen.zsh
-source /usr/share/autojump/autojump.sh
 
 # Antigen bundles and theme include
 [[ -f ~/.zshrc.bundles ]] && source ~/.zshrc.bundles

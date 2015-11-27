@@ -7,8 +7,16 @@ if [[ $TERM == xterm  ]]; then
   TERM=xterm-256color
 fi
 
+# Base16 Shell
+#BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
+#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 # User configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:$HOME/.nvm/versions/node/v0.12.7/lib/node_modules
-export PATH="/usr/local/heroku/bin:$HOME/.nvm/versions/node/v4.1.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/home/v3rt1go/.linuxbrew/bin:/home/v3rt1go/.nvm/versions/node/v5.1.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ $COLORTERM = gnome-terminal && ! $TERM = screen-256color ]] && TERM=xterm-256color

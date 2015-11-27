@@ -2,7 +2,7 @@ antigen use oh-my-zsh
 
 # antigen plugins
 # WORKFLOW
-antigen bundle debian
+antigen bundle debian 
 antigen bundle git
 antigen bundle git-extras
 antigen bundle Tarrasch/zsh-autoenv
@@ -19,7 +19,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle sudo
 antigen bundle wd
-antigen bundle colored-man
+antigen bundle colored-man-pages
 antigen bundle cp
 
 # TMUX
@@ -50,7 +50,8 @@ antigen bundle nyan
 antigen bundle chucknorris
 
 # antigen themes
-antigen theme robbyrussell
+# antigen theme pmcgeek
+antigen theme tjkirch
 # using the sindresorhus/pure theme that does not require antigen theme to be defined
 # antigen bundle mafredri/zsh-async
 # antigen bundle sindresorhus/pure
