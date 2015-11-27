@@ -1,0 +1,122 @@
+mkdir ~/.icons
+mkdir ~/.themes
+
+Numix:
+
+Install The Theme:
+
+sudo add-apt-repository ppa:numix/ppa
+sudo apt-get update
+sudo apt-get install numix-gtk-theme
+
+Install The Icons:
+
+sudo apt-add-repository ppa:numix/ppa
+sudo apt-get update
+sudo apt-get install numix-icon-theme numix-icon-theme-circle
+
+EvoPop:
+
+Open home folder 
+Control + h = show hide files
+create a folder .themes
+copy evopop theme paste in .themes
+
+https://github.com/solus-cold-storage/evopop-gtk-theme
+https://github.com/solus-cold-storage/evopop-icon-theme
+
+Arc Theme:
+
+https://github.com/horst3180/Arc-theme
+
+Terminator:
+
+http://www.apolitech.com/2015/09/how-to-install-terminal-emulator.html
+sudo add-apt-repository ppa:gnome-terminator/nightly  &&  sudo apt-get update 
+sudo apt-get install terminator 
+
+Nemo file manager:
+
+Install Nemo
+
+The default file manager, GNOME Files, is sufficient for some...but others may find it sorely lacking in features. Instead of giving GNOME Files a chance, why not just install a far more powerful and tweak-able file manager. For this, you’ll want to install Nemo. Here’s how:
+
+Open up a terminal window
+
+Add the requisite repository with the command sudo add-apt-repository ppa:webupd8team/nemo
+
+Update apt with the command sudo apt-get update
+
+Install Nemo and the file-roller plugin with the command sudo apt-get install nemo nemo-fileroller
+
+Now, there’s a slight problem with using Nemo as it stands. When you issue the command nemo to start the file manager, it will attempt to manage your desktop (which you do not want, considering the Elementary OS Freya desktop cannot work with a third-party manager). To avoid that, issue the command nemo --no-desktop.
+
+But what if you don’t want to start the new file manager from command line? The best way around that is to create a keyboard shortcut. Here’s how:
+
+Open up Settings
+
+Click on Keyboard
+
+Click on Custom
+
+Click the + button
+
+Type the command nemo --no-desktop when prompted to enter the command
+
+Hit the Enter key
+
+Click where it says “Disabled” (Figure 3)
+
+Click the keyboard shortcut you want to use (I prefer Super+F) to assign the key combination
+
+Log out of Elementary OS and log back in for the changes to take effect
+
+WPS office:
+
+http://wps-community.org/
+
+Dropbox:
+https://github.com/zant95/elementary-dropbox
+
+Hide bluetooth icon:
+http://www.hecticgeek.com/2012/11/how-to-hide-the-bluetooth-icon-ubuntu-top-panel/
+
+Check out Go For It todo's and timer app
+https://github.com/mank319/Go-For-It
+sudo add-apt-repository ppa:mank319/go-for-it && sudo apt-get update 
+sudo apt-get install go-for-it
+
+Elementary+
+
+How to install elementaryPlus
+
+There1s a eprfect installation guide at elementaryPlus’ Github page, so I just copy it here.
+
+You can add our PPA (Personal Package Archive) to your sources:
+
+sudo add-apt-repository ppa:cybre/elementaryplus
+sudo apt-get update
+sudo apt-get upgrade && sudo apt-get install elementaryplus
+or just download or clone this repository.
+
+To enable the theme, launch “elementary+ Configurator” from the application menu or run./install.sh from the parent directory of this repository, respectively, and switch on the “Core Icon Theme” option.
+
+Please also make sure, that the original elementary icon theme is installed, because elementary+ only provides additions and inherits the base theme.
+
+
+Additional software:
+audience – Media player
+birdie-granite – Twitter client
+cable – IRC client
+etube – Youtube viewer
+feedler – RSS reader
+foto – Image viewer
+gazette – Clock, news and weather widget for desktop
+nuvolaplayer – cloud music player
+
+Install and setup Pomello from chrome with trello - nice!
+Install and configure google hangouts transparent ui
+
+
+Customize elementary:
+http://www.elementarynow.com/what-is-elementary-3/customize/
