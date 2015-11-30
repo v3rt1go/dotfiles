@@ -16,7 +16,7 @@ abbr tempalte template
 abbr fitler filter
 
 set autoread " detect when a file is changed
-
+" set encoding=utf-8
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
 
@@ -179,14 +179,13 @@ set tm=500
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 10
 " Disable spellcheck
 set nospell
 
 " switch syntax highlighting on
 syntax on
 
-" set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 " colorscheme base16-default
@@ -528,11 +527,22 @@ nmap <leader>mq :MarkedQuit<cr>
 " toggle Limelight
 nmap <leader>f :Limelight!!<cr>
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" neomake
 let g:neomake_javascript_jshint_maker = {
     \ 'args': ['--verbose'],
     \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
 \ }
-let g:neomake_javascript_enabled_markers = ['jshint', 'jscs']
+
+let g:neomake_javascript_eslint_maker = {
+    \ 'args': ['-f', 'compact'],
+    \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
+    \ '%W%f: line %l\, col %c\, Warning - %m'
+\ }
+
+let g:neomake_javascript_enabled_markers = ['eslint', 'jshint', 'jscs']
 
 " Ctrl P settings
 " only show files that are not ignored by git
@@ -575,9 +585,9 @@ autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " airline options
-"let g:airline_powerline_fonts=1
-"let g:airline_left_sep=''
-"let g:airline_right_sep=''
+let g:airline_powerline_fonts=1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 "let g:airline_theme='base16'
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1

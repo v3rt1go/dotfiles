@@ -21,14 +21,14 @@ antigen bundle sudo
 antigen bundle wd
 antigen bundle colored-man-pages
 antigen bundle cp
-
+ 
 # TMUX
 antigen bundle tmux
 antigen bundle thewtex/tmux-mem-cpu-load
 
 # VIM
-antigen bundle vundle
-antigen bundle vi-mode
+# antigen bundle vundle
+# antigen bundle vi-mode
 antigen bundle fancy-ctrl-z
 
 # NODE

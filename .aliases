@@ -7,6 +7,10 @@ alias cl=clear
 alias tw=task
 alias twa='task add'
 
+# xclip
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 # Nvim
 alias vim=nvim
 
