@@ -3,3 +3,5 @@
 	name = Alex Griciuc
 [github]
 	user = agriciuc@gmail.com
+[color]
+	ui = true
