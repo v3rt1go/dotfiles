@@ -591,23 +591,23 @@ let g:airline_right_sep=''
 "let g:airline_theme='base16'
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#exclude_preview = 1
-let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+"let g:airline#extensions#tabline#exclude_preview = 1
+"let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_tab_nr = 1
 
 " Do not show buffers on tabline when no tabs are opened
-let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_buffers = 1 
 
-let g:airline#extensions#tmuxline#enabled = 1
+"let g:airline#extensions#tmuxline#enabled = 1
 
-let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=1
 let g:airline_theme='murmur'
 
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 let g:airline#extensions#ctrlp#color_template = 'visual'
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
+"let g:airline#extensions#whitespace#enabled = 1
+"let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#bufferline#enabled = 0
 " Disable current buffers being printed to command line
 let g:bufferline_echo = 0
 
@@ -647,6 +647,32 @@ let g:gitgutter_eager = 0
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
+
+" Enable Rainbow coloring of brackets and contexts
+let g:rainbow_active = 0 " 0 if we don't want it to be active by default
+" We can manually activate it with :RainbowToggle
+let g:rainbow_conf = {
+    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \   'operators': '_,_',
+    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+    \   'separately': {
+    \       '*': {},
+    \       'tex': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+    \       },
+    \       'lisp': {
+    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+    \       },
+    \       'vim': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+    \       },
+    \       'html': {
+    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+    \       },
+    \       'css': 0,
+    \   }
+    \}
 
 " javascript-vim config
 " Allow HTML/CSS syntax highlighting in js files

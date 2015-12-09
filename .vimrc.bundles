@@ -54,7 +54,7 @@ call plug#begin('~/.vim/bundle')
       Plug 'terryma/vim-multiple-cursors'
       Plug 'vim-scripts/sessionman.vim'
       Plug 'matchit.zip'
-      Plug 'mhinz/vim-signify'
+      "Plug 'mhinz/vim-signify'
       Plug 'osyo-manga/vim-over'
       Plug 'gcmt/wildfire.vim'
       Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
@@ -94,7 +94,7 @@ call plug#begin('~/.vim/bundle')
   " }
 
   " Writing {
-      " Plug 'tpope/vim-abolish.git'
+      "Plug 'tpope/vim-abolish.git'
       Plug 'reedes/vim-litecorrect'
       Plug 'reedes/vim-textobj-sentence'
       Plug 'reedes/vim-textobj-quote'
@@ -108,7 +108,7 @@ call plug#begin('~/.vim/bundle')
       Plug 'mattn/webapi-vim'
       Plug 'mattn/gist-vim'
       Plug 'scrooloose/nerdcommenter'
-      Plug 'tpope/vim-commentary'
+      "Plug 'tpope/vim-commentary'
       Plug 'godlygeek/tabular'
       Plug 'luochen1990/rainbow'
       if executable('ctags')
@@ -157,7 +157,7 @@ call plug#begin('~/.vim/bundle')
       Plug 'tpope/vim-ragtag'
       Plug 'amirh/HTML-AutoCloseTag'
       Plug 'zeekay/vim-html2jade'
-      "Plug 'groenewege/vim-less'
+      Plug 'groenewege/vim-less'
       Plug 'hail2u/vim-css3-syntax'
       Plug 'gorodinskiy/vim-coloresque'
       Plug 'ap/vim-css-color', { 'for': 'css' }
@@ -181,7 +181,7 @@ call plug#begin('~/.vim/bundle')
   " Misc {
       Plug 'tpope/vim-dispatch' " a vim compiler used to run tasks
       "Plug 'rust-lang/rust.vim'
-      Plug 'spf13/vim-preview'
+      "Plug 'spf13/vim-preview'
       "Plug 'tpope/vim-cucumber'
       "Plug 'cespare/vim-toml'
       "Plug 'quentindecock/vim-cucumber-align-pipes'
